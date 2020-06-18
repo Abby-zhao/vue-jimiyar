@@ -1,20 +1,27 @@
+<!-->vuex<-->
 <template>
-  <div id="app">
+  <div>
+    {{$store.state.name}}
+    <input type="text" v-model="inputName">
+    <button @click="changeState">更改state的值</button>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: 'Vuex',
   data(){
     return{
-      mange:[]
+      inputName:null
     }
   },
   methods:{
-
+    changeState:function () {
+      // this.$store.commit('changeName', this.inputName)
+      this.$store.dispatch('changeName1',this.inputName)
     }
+  }
 }
 </script>
 
