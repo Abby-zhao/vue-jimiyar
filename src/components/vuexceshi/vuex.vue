@@ -4,6 +4,9 @@
     {{$store.state.name}}
     <input type="text" v-model="inputName">
     <button @click="changeState">更改state的值</button>
+    <ul v-for="(item,index) in $store.state.arr" :key="index">
+      <li>{{item}}</li>
+    </ul>
     <router-view/>
   </div>
 </template>
