@@ -7,12 +7,18 @@ Vue.use(Router)
 
 export default new Router({
     routes: [{
-        path: '/First',
-        name: 'First',
-        component: First
-    }, {
-        path: '/Vuex',
-        name: 'Vuex',
-        component: Vuex
-    }]
+            path: '/First',
+            name: 'First',
+            component: First
+        }, {
+            path: '/Vuex',
+            name: 'Vuex',
+            component: Vuex
+        },
+        {
+            path: '/',
+            name: 'Home',
+            component: resolve => require(['../components/common/Home.vue'], resolve)
+        }
+    ]
 })
