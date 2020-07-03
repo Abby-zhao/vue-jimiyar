@@ -27,7 +27,7 @@
         </el-col>
         <el-col :span="24" class="main">
             <aside class="menu-collapsed">
-                <div>
+                <div class="menu-search-tool">
                     <el-input  type="text" placeholder="输入关键字，自动搜索" prefix-icon="el-icon-search"></el-input>
                     <div class="tools">
                         <i class="fa fa-align-justify"></i>
@@ -45,11 +45,12 @@ import vSidebar from './Sidebar.vue'
 export default {
     data(){
        return {
-           logoName:"新一代电费结算应用网站"
+           logoName:"新一代电费结算应用网站", //头部logo后面的文字,
+           collpased:true
        }
     },
     components:{
-        topmenu,
+        topmenu,//头部的右边
         vSidebar
     }
 }
@@ -80,6 +81,19 @@ export default {
         float: left;
         margin:5px 10px 0px 0px;
     }
+    .container .header .head-left{
+        float: left;
+        width:70%;
+        color:#fff;
+    }
+    .container .header .header-left{
+        float: left;
+    }
+    .container .main{
+        display: flex;
+        height:calc(100vh - 46px);
+        overflow: auto;
+    }
     .container .main .menu-collapsed{
         display:flex;
         position:absolute;
@@ -87,9 +101,28 @@ export default {
         overflow: auto;
         bottom: 0;
         height: calc(100vh - 46px);
-    }
-    .container .main .menu-collapsed{
-        width:200px;
+        width:230px;
         background-color:skyblue;
     }
+    .container .main aside{
+        border-right: solid 1px gray;
+    }
+    .container .main .menu-collapsed .menu-search-tool{
+        padding:10px 0 10px 10px;
+        height: 40px;
+    }
+    .container .main .menu-collapsed .menu-search-tool .el-input__inner{
+        height:25px;
+    }
+    .container .main .menu-search-tool .tools{
+        width:28px;
+        height:28px;
+        line-height:28px;
+        margin-left:10px;
+        text-align: center;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    
 </style>

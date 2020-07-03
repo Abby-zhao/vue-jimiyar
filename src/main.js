@@ -5,6 +5,11 @@ import App from './App'
 import router from './router'
 import store from './vuex/index'
 import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/base.css';
+import 'font-awesome/css/font-awesome.min.css' // z字体图标
+
+
+
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
