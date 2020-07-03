@@ -32,14 +32,10 @@ export default {
         height:46px;
         line-height:46px;
         overflow: hidden;
-        color:#fff;
     }
     .topmenu .el-menu{
         border-bottom:0;
         background:transparent;
-    }
-    .topmenu .el-menu .el-menu-demo{
-        color:#fff;
     }
     .topmenu .el-menu--horizontal .el-menu-item{
         color:lightgray;
@@ -49,7 +45,6 @@ export default {
         float: left;
         list-style-type:none;
         outline:none;
-        margin-left: 20px;
     }
     .topmenu .el-menu--horizontal .el-menu-item .icom-home{
         width:16px;

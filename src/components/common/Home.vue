@@ -16,7 +16,7 @@
                     </div>
                     <div class="userinfo">
                         <el-dropdown>
-                            <span><i></i></span>
+                            <span><i class="el-icon-arrow-down"></i></span>
                              <el-dropdown-menu>
                                  <el-dropdown-item></el-dropdown-item>
                              </el-dropdown-menu>
@@ -28,7 +28,7 @@
         <el-col :span="24" class="main">
             <aside class="menu-collapsed">
                 <div class="menu-search-tool">
-                    <el-input  type="text" placeholder="输入关键字，自动搜索" prefix-icon="el-icon-search"></el-input>
+                    <el-input size="mini" type="text" placeholder="输入关键字，自动搜索" prefix-icon="el-icon-search"></el-input>
                     <div class="tools">
                         <i class="fa fa-align-justify"></i>
                     </div>    
@@ -104,25 +104,21 @@ export default {
         width:230px;
         background-color:skyblue;
     }
-    .container .main aside{
-        border-right: solid 1px gray;
+    .container .main .menu-search-tool .el-input{
+        width:185px;
+        display: inline-block;
     }
-    .container .main .menu-collapsed .menu-search-tool{
+    .container .main .menu-search-tool{
         padding:10px 0 10px 10px;
-        height: 40px;
+        height:30px;
+        background:#ff0;
     }
-    .container .main .menu-collapsed .menu-search-tool .el-input__inner{
-        height:25px;
-    }
-    .container .main .menu-search-tool .tools{
-        width:28px;
-        height:28px;
-        line-height:28px;
-        margin-left:10px;
+    .container .main .menu-search-tool .tools {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
         text-align: center;
         display: inline-block;
         cursor: pointer;
-    }
-
-    
+    }    
 </style>
