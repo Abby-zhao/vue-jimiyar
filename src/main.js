@@ -6,7 +6,7 @@ import router from './router'
 import store from './vuex/index'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/base.css';
-import 'element-ui/lib/theme-chalk/index.css';
+import 'element-ui/lib/theme-chalk/index.css'; //左侧菜单搜索框里放大镜样式
 import 'font-awesome/css/font-awesome.min.css' // z字体图标
 
 

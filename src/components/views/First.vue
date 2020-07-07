@@ -1,4 +1,4 @@
-<!-->父组件<-->
+<!-->父组件First.vue 子组件Confirm.vue<-->
 <template>
     <div>
         11

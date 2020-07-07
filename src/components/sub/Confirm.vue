@@ -1,4 +1,4 @@
-<!-->子组件<-->
+<!-->子组件Confirm  父组件First.vue<-->
 <template>
     <div class="confirm-button">
         <button @click="getbuttonClick">{{text }}</button>

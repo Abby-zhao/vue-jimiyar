@@ -10,19 +10,6 @@
                 <div class="head-left">
                     <topmenu></topmenu>
                 </div>
-                <div class="head-right">
-                    <div class="head-right">
-                        <span></span>
-                    </div>
-                    <div class="userinfo">
-                        <el-dropdown>
-                            <span><i class="el-icon-arrow-down"></i></span>
-                             <el-dropdown-menu>
-                                 <el-dropdown-item></el-dropdown-item>
-                             </el-dropdown-menu>
-                        </el-dropdown>
-                    </div>
-                </div>
             </div>
         </el-col>
         <el-col :span="24" class="main">
@@ -46,12 +33,13 @@ export default {
     data(){
        return {
            logoName:"新一代电费结算应用网站", //头部logo后面的文字,
-           collpased:true
+           collpased:true,
+           provinceName:'',//头部更多
        }
     },
     components:{
         topmenu,//头部的右边
-        vSidebar
+        vSidebar //左侧菜单
     }
 }
 </script>
@@ -83,7 +71,7 @@ export default {
     }
     .container .header .head-left{
         float: left;
-        width:70%;
+        width:79%;
         color:#fff;
     }
     .container .header .header-left{
