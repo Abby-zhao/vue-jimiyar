@@ -17,8 +17,16 @@ export default new Router({
         },
         {
             path: '/',
+            redirect: '/dashboard'
+        },
+        {
+            path: '/',
             name: 'Home',
-            component: resolve => require(['../components/common/Home.vue'], resolve)
+            component: resolve => require(['../components/common/Home.vue'], resolve),
+            children: [{
+                path: '/dashboard',
+                meta: { title: '首页' }
+            }]
         }
     ]
 })

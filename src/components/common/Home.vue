@@ -34,7 +34,6 @@ export default {
        return {
            logoName:"新一代电费结算应用网站", //头部logo后面的文字,
            collpased:true,
-           provinceName:'',//头部更多
        }
     },
     components:{
@@ -90,7 +89,6 @@ export default {
         bottom: 0;
         height: calc(100vh - 46px);
         width:230px;
-        background-color:skyblue;
     }
     .container .main .menu-search-tool .el-input{
         width:185px;
