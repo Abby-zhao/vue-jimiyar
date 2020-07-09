@@ -13,15 +13,15 @@
             </div>
         </el-col>
         <el-col :span="24" :class="collapsed?'main full':'main'">
-            <aside :class="collapsed?'menu-collapsed':'menu-expanded'">
-                <div :class="collapsed?'menu-search-tool no':'menu-search-tool'">
-                    <el-input size="mini" type="text" placeholder="输入关键字，自动搜索" prefix-icon="el-icon-search"></el-input>
-                    <div class="tools"  @click.prevent="collapse">
-                        <i class="fa fa-align-justify"></i>
-                    </div>    
-                </div>
-                <v-sidebar></v-sidebar>
-            </aside>
+          <aside :class="collapsed?'menu-collapsed':'menu-expanded'">
+            <div :class="collapsed?'menu-search-tool no':'menu-search-tool'">
+              <el-input size="mini" placeholder="输入关键字,自动搜索" prefix-icon="el-icon-search" v-model="inputValue"></el-input>
+              <div class="tools" @click.prevent="collapse">
+                <i class="fa fa-align-justify"></i>
+              </div>
+            </div>
+            <v-sidebar></v-sidebar>
+          </aside>
         </el-col>
     </el-row>
 </div>
@@ -35,7 +35,7 @@ export default {
     data(){
        return {
            logoName:"新一代电费结算应用网站", //头部logo后面的文字,
-           collapsed:true,
+           collapsed:false,
        }
     },
     components:{
@@ -50,6 +50,7 @@ export default {
             }
         })
     },
+  methods:{
     // 折叠导航栏
     collapse: function () {
       this.collapsed = !this.collapsed
@@ -59,6 +60,7 @@ export default {
         window.dispatchEvent(e)
       }, 500)
     },
+  }
 }
 </script>
 <style>
@@ -125,5 +127,5 @@ export default {
         text-align: center;
         display: inline-block;
         cursor: pointer;
-    }    
+    }
 </style>

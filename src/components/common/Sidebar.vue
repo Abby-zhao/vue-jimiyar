@@ -1,40 +1,37 @@
 <template>
-    <div class="sidebar">
-        <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" unique-opened router>
-            <template v-for="item in items">
-                <template v-if="item.subs">
-                    <el-submenu :index="item.index" :key="item.index">
-                        <template solt="title">
-                            <i :class="item.icon"></i>
-                            <span slot="title">{{item.title}}</span>
-                        </template>
-                        <template v-for="subItem in item.subs">
-                            <el-submenu v-if="subItem.subs" :index="subItem.index" :key="subItem.index">
-                                <template slot="title">{{subItem.title}}</template>
-                                <el-menu-item v-for="(treeItem,i) in subItem.subs" :key="i" :index="treeItem.index">{{treeItem.title}}</el-menu-item>
-                            </el-submenu>
-                            <el-menu-item v-else :index="subItem.index" :key="subItem.index">{{subItem.title}}</el-menu-item>
-                        </template>
-                    </el-submenu>
-                </template>
-                <template v-else>
-                    <el-menu-item :index="item.index" :key="item.index">
-                        <i :class="item.icon"></i>
-                        <span slot="title">{{item.title}}</span>
-                    </el-menu-item>
-                </template>
+  <div class="sidebar">
+    <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" unique-opened router>
+      <template v-for="item in items">
+        <template v-if="item.subs">
+          <el-submenu :index="item.index" :key="item.index">
+            <template slot="title">
+              <i :class="item.icon"></i><span slot="title">{{ item.title }}</span>
             </template>
-        </el-menu>
-    </div>
+            <template v-for="subItem in item.subs">
+              <el-submenu v-if="subItem.subs" :index="subItem.index" :key="subItem.index">
+                <template slot="title">{{ subItem.title }}</template>
+                <el-menu-item v-for="(threeItem,i) in subItem.subs" :key="i" :index="threeItem.index">
+                  {{ threeItem.title }}
+                </el-menu-item>
+              </el-submenu>
+              <el-menu-item v-else :index="subItem.index" :key="subItem.index">
+                {{ subItem.title }}
+              </el-menu-item>
+            </template>
+          </el-submenu>
+        </template>
+        <template v-else>
+          <el-menu-item :index="item.index" :key="item.index">
+            <i :class="item.icon"></i><span slot="title">{{ item.title }}</span>
+          </el-menu-item>
+        </template>
+      </template>
+    </el-menu>
+  </div>
 </template>
 <script>
 import bus from '../common/bus'
 import items from '../../common/menu/datas.js'
-import scmenu from '../../common/menu/sichuan.js'
-import zjmenu from '../../common/menu/zhejiang.js'
-import gsmenu from '../../common/menu/gansu.js'
-import sxmenu from '../../common/menu/shanxi.js'
-import sdmenu from '../../common/menu/shandong.js'
 let _this = null
 export default {
     data(){
@@ -101,30 +98,40 @@ export default {
       this.items = msg
     })
     },
+    methods:{
+      collapse: function () {
+        _this.collapsed = !this.collapsed
+        bus.$emit('collapse',this.collapsed)
+        setTimeout(function () {
+          e.initEvent('resize', true, true)
+          window.dispatchEvent(e)
+        }, 500)
+      },
+    }
 }
 </script>
 <style scoped>
-    .sidebar{
-        display:block;
-        position: absolute;
-        left:0;
-        top:50px;
-        bottom:0;
-        overflow-y:scroll;
-        width:240px;
-    }
-    .sidebar::-webkit-scrollbar{
-        width: 0;
-    }
-    .sidebar-el-menu:not(.el-menu--collapse){
-        width: 250px;
-    }
-    .sidebar > ul {
-        height:100%;
-    }
-    .sidebar .el-menu--collapse{
-        width: 250px;
-        background:lightgray;
-        padding:0;
-    }
+  .sidebar{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 48px;
+    bottom:0;
+    overflow-y: scroll;
+  }
+  .sidebar::-webkit-scrollbar{
+    width: 0;
+  }
+  .sidebar-el-menu:not(.el-menu--collapse){
+    width: 250px;
+  }
+  .sidebar > ul {
+    height:100%;
+  }
+  /*.sidebar-el-menu > .el-submenu > .el-menu > .el-menu-item{*/
+  /*margin-left: 25px;*/
+  /*}*/
+  .sidebar .el-menu--collapse{
+    width: 60px;
+  }
 </style>
