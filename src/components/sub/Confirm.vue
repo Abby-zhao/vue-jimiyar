@@ -10,7 +10,7 @@ export default {
     props:["text"],//父组件向子组件传的值   //父组件传给子组件的值用props接收
     data(){
         return{
-            msg:123
+            msg:234
         }
     },
     methods:{

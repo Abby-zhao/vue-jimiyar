@@ -51,6 +51,7 @@ export default {
       this.$router.push({path: '/'})
     },
     jumpBasic () {
+      console.log(this.items)
       sessionStorage.setItem('menus', JSON.stringify(this.items.basic))
       bus.$emit('passBasic', this.items.basic)
       bus.$emit('collapseOpen', true)
@@ -164,7 +165,7 @@ export default {
          background-color:#666;
      }
 </style>
-<style > <!--写第二个style是因为el-submenu的样式不生效-->
+<style >
     .topmenu .el-menu--horizontal>.el-submenu .el-submenu__title{
         height:46px;
         line-height:46px;

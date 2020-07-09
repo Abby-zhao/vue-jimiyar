@@ -12,11 +12,11 @@
                 </div>
             </div>
         </el-col>
-        <el-col :span="24" class="main">
-            <aside class="menu-collapsed">
-                <div class="menu-search-tool">
+        <el-col :span="24" :class="collapsed?'main full':'main'">
+            <aside :class="collapsed?'menu-collapsed':'menu-expanded'">
+                <div :class="collapsed?'menu-search-tool no':'menu-search-tool'">
                     <el-input size="mini" type="text" placeholder="输入关键字，自动搜索" prefix-icon="el-icon-search"></el-input>
-                    <div class="tools">
+                    <div class="tools"  @click.prevent="collapse">
                         <i class="fa fa-align-justify"></i>
                     </div>    
                 </div>
@@ -27,19 +27,38 @@
 </div>
 </template>
 <script>
+import bus from '../common/bus'
 import topmenu from './topmenu.vue'
 import vSidebar from './Sidebar.vue'
+let _this=null
 export default {
     data(){
        return {
            logoName:"新一代电费结算应用网站", //头部logo后面的文字,
-           collpased:true,
+           collapsed:true,
        }
     },
     components:{
         topmenu,//头部的右边
         vSidebar //左侧菜单
-    }
+    },
+    created:function(){
+        _this=this
+        bus.$on('collapaseOpen',v=>{
+            if(_this.collapsed){
+                _this.collapse()
+            }
+        })
+    },
+    // 折叠导航栏
+    collapse: function () {
+      this.collapsed = !this.collapsed
+      bus.$emit('collapse', this.collapsed)
+      setTimeout(function () {
+        e.initEvent('resize', true, true)
+        window.dispatchEvent(e)
+      }, 500)
+    },
 }
 </script>
 <style>
@@ -95,9 +114,9 @@ export default {
         display: inline-block;
     }
     .container .main .menu-search-tool{
-        padding:10px 0 10px 10px;
+        padding:10px 2px 10px 10px;
         height:30px;
-        background:#ff0;
+        background:lightgray;
     }
     .container .main .menu-search-tool .tools {
         width: 28px;
