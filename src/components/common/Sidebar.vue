@@ -128,9 +128,6 @@ export default {
   .sidebar > ul {
     height:100%;
   }
-  /*.sidebar-el-menu > .el-submenu > .el-menu > .el-menu-item{*/
-  /*margin-left: 25px;*/
-  /*}*/
   .sidebar .el-menu--collapse{
     width: 60px;
   }

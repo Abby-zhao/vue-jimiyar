@@ -45,7 +45,6 @@ export default {
   methods:{
     // 折叠导航栏
     coll: function (e) {
-        debugger
       this.collapsed = !this.collapsed //折不折叠来回换
       bus.$emit('coll', this.collapsed) //发送数据
       setTimeout(function () {
@@ -56,9 +55,10 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
     .container{
         position: absolute;
+        min-width:1270px;
         top:0px;
         bottom:0px;
         width:100%;
@@ -69,6 +69,7 @@ export default {
         background: #444;
         line-height:46px;
         color:#fff;
+        padding-right:10px;
     }
     .container .header .logo{
         width:250px;
@@ -89,7 +90,7 @@ export default {
     }
     .container .header .header-left{
         float: left;
-    }
+    } 
     .container .main{
         display: flex;
         height:calc(100vh - 46px);
@@ -102,10 +103,10 @@ export default {
         flex:0 0 249px;
         width:249px;
         border-right:1px solid #e6e6e6;
+        background:lightgray;
     }
     .container .main aside .el-menu {
         border-right: 0;
-        background: lightgray;
     }
     .container .main .menu-collapsed{
         flex: 0 0 60px;
@@ -124,7 +125,7 @@ export default {
     .container .main aside .collapsed .item {
         position: relative;
     }
-    .container .main aside .collapsed .item .submenu {
+    .container .main aside .collapsed .submenu {
         position: absolute;
         top: 0px;
         left: 60px;
@@ -145,19 +146,6 @@ export default {
         height: 28px;
         line-height: 28px;
         margin-left: 10px;
-        text-align: center;
-        display: inline-block;
-        cursor: pointer;
-    }
-    .container .main .menu-search-tool{
-        padding:10px 2px 10px 10px;
-        height:30px;
-        background:lightgray;
-    }
-    .container .main .menu-search-tool .tools {
-        width: 28px;
-        height: 28px;
-        line-height: 28px;
         text-align: center;
         display: inline-block;
         cursor: pointer;
