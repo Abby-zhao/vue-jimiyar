@@ -15,8 +15,8 @@
         <el-col :span="24" :class="collapsed?'main full':'main'">
           <aside :class="collapsed?'menu-collapsed':'menu-expanded'">
             <div :class="collapsed?'menu-search-tool no':'menu-search-tool'">
-              <el-input size="mini" placeholder="输入关键字,自动搜索" prefix-icon="el-icon-search" v-model="inputValue"></el-input>
-              <div class="tools" @click.prevent="collapse">
+              <el-input size="mini" placeholder="输入关键字,自动搜索" prefix-icon="el-icon-search"></el-input>
+              <div class="tools" @click.prevent="coll">
                 <i class="fa fa-align-justify"></i>
               </div>
             </div>
@@ -35,30 +35,23 @@ export default {
     data(){
        return {
            logoName:"新一代电费结算应用网站", //头部logo后面的文字,
-           collapsed:false,
+           collapsed:true,//不折叠
        }
     },
     components:{
         topmenu,//头部的右边
         vSidebar //左侧菜单
     },
-    created:function(){
-        _this=this
-        bus.$on('collapaseOpen',v=>{
-            if(_this.collapsed){
-                _this.collapse()
-            }
-        })
-    },
   methods:{
     // 折叠导航栏
-    collapse: function () {
-      this.collapsed = !this.collapsed
-      bus.$emit('collapse', this.collapsed)
+    coll: function (e) {
+        debugger
+      this.collapsed = !this.collapsed //折不折叠来回换
+      bus.$emit('coll', this.collapsed) //发送数据
       setTimeout(function () {
         e.initEvent('resize', true, true)
         window.dispatchEvent(e)
-      }, 500)
+      }, 1500)
     },
   }
 }
@@ -101,19 +94,60 @@ export default {
         display: flex;
         height:calc(100vh - 46px);
         overflow: auto;
-    }
-    .container .main .menu-collapsed{
-        display:flex;
         position:absolute;
         top:46px;
-        overflow: auto;
-        bottom: 0;
-        height: calc(100vh - 46px);
-        width:230px;
+        bottom:0px;
     }
-    .container .main .menu-search-tool .el-input{
+    .container .main aside{
+        flex:0 0 249px;
+        width:249px;
+        border-right:1px solid #e6e6e6;
+    }
+    .container .main aside .el-menu {
+        border-right: 0;
+        background: lightgray;
+    }
+    .container .main .menu-collapsed{
+        flex: 0 0 60px;
+        width: 60px;
+        transition: 300ms;
+    }
+     .container .main .menu-expanded {
+        flex: 0 0 249px;
+        width: 249px;
+        overflow-y: auto;
+        transition: 300ms;
+      }
+    .container .main aside .collapsed{
+        width:59px;
+    }
+    .container .main aside .collapsed .item {
+        position: relative;
+    }
+    .container .main aside .collapsed .item .submenu {
+        position: absolute;
+        top: 0px;
+        left: 60px;
+        z-index: 99999;
+        height: auto;
+        display: none;
+        box-shadow: 0px 2px 4px #ccc;
+    }
+    .container .main aside .menu-search-tool{
+        padding: 10px 0 10px 10px;
+    }
+    .container .main aside .menu-search-tool .el-input{
         width:185px;
         display: inline-block;
+    }
+    .container .main aside .menu-search-tool .tools{
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        margin-left: 10px;
+        text-align: center;
+        display: inline-block;
+        cursor: pointer;
     }
     .container .main .menu-search-tool{
         padding:10px 2px 10px 10px;
@@ -127,5 +161,16 @@ export default {
         text-align: center;
         display: inline-block;
         cursor: pointer;
+    }
+    .container .main aside .menu-search-tool.no {
+        padding: 10px 0;
+    }
+    .container .main aside .menu-search-tool.no .el-input{
+        display:none;
+    }
+    .container .main aside .menu-search-tool.no .tools{
+        margin-left: 0;
+        height: 100%;
+        width: 100%;
     }
 </style>

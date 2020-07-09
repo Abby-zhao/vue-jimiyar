@@ -49,9 +49,9 @@ export default {
         _this=this
         this.items=items
         //通过Event Bus 进行组件间通信，来折叠侧边栏
-        bus.$on('collapse',msg=>{ //监听事件（Event bus）
+        bus.$on('coll',msg=>{ //监听事件（Event bus）也就是接收数据
             this.collapse=msg
-            console.log("%%%%%%%%%%%%",this.collapse)
+            console.log("***********",this.collapse)//返回结果为true
             this.items=sessionStorage.getItem('menus') ? JSON.parse(sessionStorage.getItem('menus')) :irems.basic
             console.log("44444444444444",this.items)
         })
@@ -99,9 +99,9 @@ export default {
     })
     },
     methods:{
-      collapse: function () {
+      coll: function () {
         _this.collapsed = !this.collapsed
-        bus.$emit('collapse',this.collapsed)
+        bus.$emit('coll',this.collapsed)
         setTimeout(function () {
           e.initEvent('resize', true, true)
           window.dispatchEvent(e)
@@ -123,7 +123,7 @@ export default {
     width: 0;
   }
   .sidebar-el-menu:not(.el-menu--collapse){
-    width: 250px;
+    width: 249px;
   }
   .sidebar > ul {
     height:100%;
