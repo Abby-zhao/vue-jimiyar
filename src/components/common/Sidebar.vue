@@ -55,6 +55,9 @@ export default {
             this.items=sessionStorage.getItem('menus') ? JSON.parse(sessionStorage.getItem('menus')) :irems.basic
             console.log("44444444444444",this.items)
         })
+    bus.$on('passBasic', msg=> {
+      this.items = msg
+    })
     bus.$on('passXhsc', msg => {
       this.items = msg
     })
@@ -123,7 +126,7 @@ export default {
     width: 0;
   }
   .sidebar-el-menu:not(.el-menu--collapse){
-    width: 249px;
+    width: 235px;
   }
   .sidebar > ul {
     height:100%;
