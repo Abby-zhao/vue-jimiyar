@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" style="background: darkgray">
     <el-row >
         <el-col :span="24" class="header">
             <div class="logo header-left">
@@ -22,6 +22,20 @@
             </div>
             <v-sidebar></v-sidebar>
           </aside>
+<!--          主体内容区域-->
+          <section class="content">
+            <section class="content-container" id="content-container" :style="{height:(screenHeight-92)+'px'}">
+              <div class="grid-content bg-purple-light">
+                <el-col :span="24" class="content-wrapper">
+                  <transition name="move" mode="out-in">
+                    <keep-alive>
+                      <router-view></router-view>
+                    </keep-alive>
+                  </transition>
+                </el-col>
+              </div>
+            </section>
+          </section>
         </el-col>
     </el-row>
 </div>

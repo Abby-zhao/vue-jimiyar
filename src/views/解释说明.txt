@@ -1,0 +1,2 @@
+goModel go.js代码也
+computed  计算属性

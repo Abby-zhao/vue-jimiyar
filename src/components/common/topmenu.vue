@@ -26,11 +26,6 @@
 <script>
 import bus from '../common/bus'
 import items from '../../common/menu/datas.js'
-import scmenu from '../../common/menu/sichuan.js'
-import zjmenu from '../../common/menu/zhejiang.js'
-import gsmenu from '../../common/menu/gansu.js'
-import sxmenu from '../../common/menu/shanxi.js'
-import sdmenu from '../../common/menu/shandong.js'
 export default {
     name:'topmenu',
     data() {

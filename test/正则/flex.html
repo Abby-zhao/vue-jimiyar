@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    .flex-content{
+      /*// inline-flex 变成行内元素 */
+      height: 900px;
+      display: flex;
+      /*row-reverse  : 行倒叙排列
+        row：  行排列
+        column：列排列
+        column-reverse: 列排列倒叙
+      */
+      flex-direction: row;
+      flex-wrap: wrap;
+      /*
+      flex-wrap 是否换行
+      wrap-reverse ： 倒着换行
+      wrap：换行
+      no-wrap: 不换行
+      */
+      /*flex-flow: flex-direction flex-wrap ; 组合使用快捷写法*/
+      /*flex-wrap: wrap-reverse;*/
+
+
+      /*justify-content
+          flex-end:主轴的终点
+          flex-start:主轴的起点
+          center 居中
+          space-around 两端平分
+          space-between 中间平分
+       子元素在主轴的对齐方式*/
+      justify-content: center;
+      /*
+      flex-start
+      flex-end
+      center
+      stretch
+       space-around 两端平分
+          space-between 中间平分
+      */
+      /*控制容器多行在交叉轴的排列方式*/
+      align-content:center  ;
+      /*控制元素在交叉轴对齐方式*/
+      /*align-items: ;*/
+      background: black;
+    }
+    .flex-item{
+      height: 100px;
+    }
+    .flex-item:nth-child(1){
+      background: red;
+    }
+    .flex-item:nth-child(2){
+      background: green;
+    }
+    .flex-item:nth-child(3){
+      background: lightseagreen;
+    }
+    .flex-item:nth-child(4){
+      background: yellow;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="flex-content">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+        <div class="flex-item">D</div>
+    </div>
+</body>
+</html>

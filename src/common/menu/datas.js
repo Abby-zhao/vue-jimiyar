@@ -3,30 +3,28 @@ const basic = [
   {
     icon: 'el-icon-tickets',
     index: 'market',
-    title: '市场成员管理',
+    title: '计算属性和侦听器',
     subs: [
       {
-        index: 'produceEle',
-        title: '发电企业'
+        index: 'computed',
+        title: '计算属性'
       },
       {
-        index: 'elePower',
-        title: '电网企业'
-      },
-      {
-        index: 'saleMember',
-        title: '售电公司'
-      },
-      {
-        index: 'powerUser',
-        title: '电力用户'
+        index: 'watcher',
+        title: '侦听器'
       }
     ]
   },
   {
     icon: 'el-icon-tickets',
-    index: 'clearingMember',
-    title: '结算单元管理'
+    index: 'layout',
+    title: '布局',
+    subs: [
+      {
+        index: 'leftFixedRightAuto',
+        title: '左边定宽,右边自适应'
+      },
+    ]
   },
   {
     icon: 'el-icon-tickets',
